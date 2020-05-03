@@ -16,7 +16,7 @@ from util.utils import non_max_suppression
 
 
 
-glob.minutes_=3
+glob.minutes_=0.5
 glob.time_=glob.minutes_ * 60
 glob.start_ = time.time()
 

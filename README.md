@@ -1,4 +1,4 @@
-#Spy_Dorne_yolov3
+# Spy_Dorne_yolov3
 
 https://github.com/abhibothera/Spy_Drone_yolov3_master
 
@@ -20,7 +20,7 @@ if you have to count a lot of objects daily like goods you can use this toolkit 
 ****Requirements****
 
 
- - [Python](https://www.python.org/) 3.*
+ - [Python 3.*](https://www.python.org/)
  - [Numpy](http://www.numpy.org/)
  - [OpenCV](https://opencv.org/)
  - [Pytorch](https://pytorch.org/)

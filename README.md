@@ -1,4 +1,4 @@
-#Surveillance_Social_Distancing_Drone_yolov3_master
+# Surveillance_Social_Distancing_Drone_yolov3_master
 
 https://github.com/abhibothera/Surveillance_Social_Distancing_Drone_yolov3_master
 
@@ -20,7 +20,7 @@ if you have to count a lot of objects daily like goods you can use this toolkit 
 ****Requirements****
 
 
- - [Python](https://www.python.org/) 3.*
+ - [Python 3.*](https://www.python.org/)
  - [Numpy](http://www.numpy.org/)
  - [OpenCV](https://opencv.org/)
  - [Pytorch](https://pytorch.org/)

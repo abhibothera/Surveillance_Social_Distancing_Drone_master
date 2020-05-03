@@ -4,6 +4,10 @@
 
 Object counter is a toolkit that uses YOLO V3(you only look once version 3) algorithm. It makes an object detection on images/videos and count the number of objects present in the video coming from the camera on the drone.
 
+![](./github_images/1.jpg)
+![](./github_images/2.jpg)
+![](./github_images/3.jpg)
+![](./github_images/4.jpg)
 
 This toolkit allow you to make predictions using pre-trained weights or train the network in your own dataset for making predictions.
 if you have to count a lot of objects daily like goods you can use this toolkit to count for your in less than second.

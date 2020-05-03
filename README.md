@@ -1,10 +1,13 @@
 #Spy_Dorne_yolov3
 
-(https://github.com/abhibothera/Spy_Drone_yolov3-_master)
+https://github.com/abhibothera/Spy_Drone_yolov3-_master
+
 
 Object counter is a toolkit that uses YOLO V3(you only look once version 3) algorithm. It makes an object detection on images/videos and count the number of objects present in the video coming from the camera on the drone.
 
-[Video example of the drone footage is uploaded here] (https://www.youtube.com/watch?v=piEvitlra1Y)
+
+Video sample of the drone footage is uploaded here : https://www.youtube.com/watch?v=piEvitlra1Y
+
 
 ![](./github_images/1.jpg)
 ![](./github_images/2.jpg)

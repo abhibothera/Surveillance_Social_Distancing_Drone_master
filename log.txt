@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 random text
-=======
-random text
->>>>>>> 08eb96ea7d97b0e453c10b09be02149c9cd66bff

@@ -3,16 +3,22 @@ import time
 from collections import Counter
 import argparse
 import os
-
+import time
 import pickle as pkl
 import torch
 from torch.autograd import Variable
 import cv2
-
+import glob
 from util.parser import load_classes
 from util.model import Darknet
 from util.image_processor import prep_image
 from util.utils import non_max_suppression
+
+
+
+glob.minutes_=3
+glob.time_=glob.minutes_ * 60
+glob.start_ = time.time()
 
 
 def arg_parse():
@@ -73,7 +79,77 @@ if not os.path.exists(args.outputs):
     os.makedirs(args.outputs)
 
 
+with open("mail.html", "r", encoding='utf-8') as f:
+    mailFormat= f.read()
+
+
+
+
+
+
+
+def mail(maximum_):
+    import pandas as pd
+    df=pd.DataFrame(glob.list_)
+    df.to_csv("log.csv")
+
+    import smtplib
+    import os
+    from email.mime.text import MIMEText
+    from email.mime.image import MIMEImage
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.base import MIMEBase
+    from email import encoders
+    from pathlib import Path
+
+    FROM = "intrusion12345@gmail.com"
+    mail="ab5531@bennett.edu.in"
+    TO=mail
+    msg = MIMEMultipart()
+    msg['Subject'] = 'Alert: Generated Report'
+    msg['To'] = TO
+    msg['From'] = FROM
+    msg.preamble = """Your mail reader does not support the report format."""
+    name=mail.split('@')[0]
+    text = MIMEText(str(mailFormat).format(name,maximum_),'html')
+    part = MIMEBase('application', "octet-stream")
+
+    #
+    img_data = open('image.png', 'rb').read()
+    image_data = MIMEImage(img_data, name=str("Image")+".png")
+    msg.attach(image_data)
+
+    with open("log.csv", 'rb') as file:
+        part.set_payload(file.read())
+    encoders.encode_base64(part)
+    part.add_header('Content-Disposition',
+                    'attachment; filename="{}"'.format(Path("log.csv").name))
+    msg.attach(part)
+    msg.attach(text)
+    TO = [mail]
+
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+    except:
+         server = smtplib.SMTP('smtp.gmail.com', 465)
+    server.starttls()
+    server.login("intrusion12345@gmail.com", "intrusion9999")
+    server.sendmail(FROM, TO, msg.as_string())
+    server.quit()
+
+def timer(maximum_):
+    import glob
+    duration=time.time() - glob.start_
+    if duration>glob.time_:
+            mail(maximum_)
+            glob.start_=time.time()
+            glob.maxs_=-1000
+            glob.list_={"Time":[],"Number of Users":[],"Image":[]}
+
+
+
 def write(x, results):
+    import glob
     c1 = tuple(x[1:3].int())
     c2 = tuple(x[3:5].int())
     img = results
@@ -82,8 +158,17 @@ def write(x, results):
     color = colors[cls%100]
     label = "{0}: {1}".format(classes[cls],str(obj_counter[cls]))
     if(int(obj_counter[cls]))>5:
-        print("Alert")
-        print(img)
+
+        glob.list_['Time'].append(time.time())
+        glob.list_['Number of Users'].append(int(obj_counter[cls]))
+        glob.list_['Image'].append(img)
+
+        if glob.maxs_<int(obj_counter[cls]):
+            from PIL import Image
+            im = Image.fromarray(img)
+            im.save("image.png")
+            glob.maxs_=int(obj_counter[cls])
+        timer(glob.maxs_)
     cv2.rectangle(img, c1, c2,color, 1)
     t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 1 , 1)[0]
     c2 = c1[0] + t_size[0] + 3, c1[1] + t_size[1] + 4

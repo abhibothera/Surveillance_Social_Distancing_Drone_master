@@ -43,7 +43,7 @@ tiny yolo -> `$ sh weights/download_weights_tiny.sh`
 Add your configuration file for your model in config directory, or use yolov3 of tiny yolo configurations models files
 
 
-## Videos
+## Surveillance and Social Distancing Detection 
 `ssdd.py` is the script that is responsible for managing predictions on videos
 ```
 usage: ssdd.py [-h] [--bs BS] [--confidence CONFIDENCE]

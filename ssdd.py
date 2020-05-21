@@ -102,7 +102,7 @@ def mail(maximum_):
     from email import encoders
     from pathlib import Path
 
-    FROM = "intrusion12345@gmail.com"
+    FROM = "socialdistancing.drone@gmail.com"
     mail="ab5531@bennett.edu.in"
     TO=mail
     msg = MIMEMultipart()
@@ -133,7 +133,7 @@ def mail(maximum_):
     except:
          server = smtplib.SMTP('smtp.gmail.com', 465)
     server.starttls()
-    server.login("intrusion12345@gmail.com", "intrusion9999")
+    server.login("socialdistancing.drone@gmail.com", "Abhi@2699")
     server.sendmail(FROM, TO, msg.as_string())
     server.quit()
 

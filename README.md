@@ -44,9 +44,9 @@ Add your configuration file for your model in config directory, or use yolov3 of
 
 
 ## Videos
-`video.py` is the script that is responsible for managing predictions on videos
+`ssdd.py` is the script that is responsible for managing predictions on videos
 ```
-usage: video.py [-h] [--bs BS] [--confidence CONFIDENCE]
+usage: ssdd.py [-h] [--bs BS] [--confidence CONFIDENCE]
                 [--nms_thresh NMS_THRESH] [--config CONFIGFILE]
                 [--weights WEIGHTSFILE] [--outputs OUTPUTS] [--reso RESO]
                 [--video VIDEOFILE] [--cam CAMERA]
@@ -70,7 +70,10 @@ optional arguments:
 
 ```
 
+When more than the specified number of people appear in a frame, an Alert is sent through mail.
 
+This is a sample alert mail:
+![](./github_images/MailAlertSample.JPG)
 
  ## Credits
  - [Object-Counter-YOLOV3](https://github.com/DiaaZiada/Object-Counter-YOLOV3)

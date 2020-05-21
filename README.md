@@ -1,4 +1,4 @@
-# Surveillance_Social_Distancing_Drone_yolov3_master
+# Surveillance and Social Distancing Drone
 
 https://github.com/abhibothera/Surveillance_Social_Distancing_Drone_yolov3_master
 

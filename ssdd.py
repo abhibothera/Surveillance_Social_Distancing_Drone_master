@@ -67,6 +67,7 @@ assert inp_dim > 32
 
 #If there's a GPU availible, put the model on GPU
 if CUDA:
+    print(1234567)
     model.cuda()
 
 
@@ -144,7 +145,7 @@ def timer(maximum_):
             mail(maximum_)
             glob.start_=time.time()
             glob.maxs_=-1000
-            glob.list_={"Time":[],"Number of Users":[],"Image":[]}
+            glob.list_={"Time":[],"Number of People":[],"Image":[]}
 
 
 
@@ -157,10 +158,10 @@ def write(x, results):
     cls = int(x[-1])
     color = colors[cls%100]
     label = "{0}: {1}".format(classes[cls],str(obj_counter[cls]))
-    if(int(obj_counter[cls]))>5:
+    if((int(obj_counter[cls]))>5  and (classes[cls]=='person')):
 
         glob.list_['Time'].append(time.time())
-        glob.list_['Number of Users'].append(int(obj_counter[cls]))
+        glob.list_['Number of People'].append(int(obj_counter[cls]))
         glob.list_['Image'].append(img)
 
         if glob.maxs_<int(obj_counter[cls]):
@@ -243,9 +244,6 @@ while True:
         for i in range(output.shape[0]):
             output[i, [1,3]] = torch.clamp(output[i, [1,3]], 0.0, im_dim[i,0])
             output[i, [2,4]] = torch.clamp(output[i, [2,4]], 0.0, im_dim[i,1])
-
-
-
 
         classes = load_classes('data/coco.names')
         colors = pkl.load(open("colors/pallete", "rb"))

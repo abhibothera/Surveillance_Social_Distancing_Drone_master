@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 10 16:51:11 2019
 
-@author: diaa
 """
+@author: Abhi
+
+"""
+
+
 from collections import defaultdict
 
 import numpy as np
@@ -86,7 +88,7 @@ class Darknet(nn.Module):
         """
         
         # Open the weights file
-        fp = open(weights_path, "rb")
+        fp = open(weights_path,)
         header = np.fromfile(fp, dtype=np.int32, count=5)  # First five are header values
 
         # Needed to write header when saving weights

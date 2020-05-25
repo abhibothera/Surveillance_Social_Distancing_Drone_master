@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Created on Sun Feb 24 20:02:45 2019
+@author: Abhi
 
-@author: diaa
 """
 
 def parse_model_configuration(path):

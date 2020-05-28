@@ -75,6 +75,8 @@ When more than the specified number of people appear in a frame, an Alert is sen
 This is a sample alert mail:
 ![](./github_images/MailAlertSample.JPG)
 
+Working and Project Video is uploaded here : https://youtu.be/5ohVShRepiE 
+
  ## Credits
  - [Object-Counter-YOLOV3](https://github.com/DiaaZiada/Object-Counter-YOLOV3)
  - [YOLO v3 tutorial from scratch](https://github.com/ayooshkathuria/YOLO_v3_tutorial_from_scratch)
